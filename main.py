@@ -9,19 +9,31 @@ screen = True
 
 while screen == True:
   
-  start = str(input("Do you want to use the calcu-maton? \n <YES>    <NO> \n")).upper()
-
-  if start == "YES":
-    calc_run = True
-  elif start != "YES":
-    calc_run = False
+  calc_run = []
+  try:
+    start = str(input("Do you want to use the calcu-maton? \n <YES>    <NO> \n")).upper()
+    if start == "YES":
+      calc_run = True
+  except start != "YES": 
+    print("Goodbye")
+    # if start != "NO":
+    #   screen == False
+    #   calc_run == False
+    #   print("Alas, now is not the time for trickery. Goodbye and have a jolly good day!")
+    # if start == "NO":
+    #   screen == False
+    #   calc_run == False
+    #   print("Alas, goodbye.")
+      
+  while calc_run == False:
     if start != "NO":
       screen == False
+      calc_run == False
       print("Alas, now is not the time for trickery. Goodbye and have a jolly good day!")
     if start == "NO":
       screen == False
+      calc_run == False
       print("Alas, goodbye.")
-      
 
   while calc_run == True:
 
