@@ -50,56 +50,57 @@ while calc_run == True:
     operation = str(input("Enter your operation: "))
     '''operations = ["+","-","*","/"]'''
     for o in operations:
-      if operation in operations:
+      if not operation in operations:
+        valid_opp = False
+      else:
         valid_opp = True
         num2_ask = True
-      else:
-        valid_opp = False
 
       if valid_opp == False:   # THIS was the holdup
-        operation = str(input("Try again. Enter an appropriate symbol. "))
+        operation = str(input("Enter an appropriate symbol. "))
         
         if operation in operations:
           valid_opp = True
           num2_ask = True
   
               #   while num2_ask == True: <-- made same mistake 
-          if num2_ask == True:
-            try:
-              num2 = float(input("Enter your second number: ")) 
-              valid_num2 = True
-              num2_ask = False
-            except ValueError:
-              print("Egads! What are you doing? Try again.")
-              valid_num2 = False
-              while valid_num2 == False:
-                  
-                  try:
-                    num2 = float(input("Enter your second number: ")) 
-                    valid_num2 = True
-                    num2_ask = False
-                  except ValueError:
-                    print("Egads! What are you doing? Try again.")
-                    valid_num2 = False
-                    continue
-    
+        if valid_opp == True:
+          try:
+            num2 = float(input("Enter your second number: ")) 
+            valid_num2 = True
+            num2_ask = False
+          except ValueError:
+            print("Egads! What are you doing? Try again.")
+            valid_num2 = False
+            while valid_num2 == False:
+                
+                try:
+                  num2 = float(input("Enter your second number: ")) 
+                  valid_num2 = True
+                  num2_ask = False
+                except ValueError:
+                  print("Egads! What are you doing? Try again.")
+                  valid_num2 = False
+                  continue
+  
 
-            for o in operations:
-              if operation == "+":
-                result = add(num1,num2)
-              elif operation == "-":
-                result = subtract(num1,num2)
-              elif operation == "*":
-                result = multiply(num1,num2)
-              elif operation == "/":
-                if num2 != 0:
-                  result = divide(num1,num2)
-                else: 
-                  result = "Undefined. You cannot divide by zero"
+          for o in operations:
+            if operation == "+":
+              result = add(num1,num2)
+            elif operation == "-":
+              result = subtract(num1,num2)
+            elif operation == "*":
+              result = multiply(num1,num2)
+            elif operation == "/":
+              if num2 != 0:
+                result = divide(num1,num2)
+              else: 
+                result = "Undefined. You cannot divide by zero"
           print(f"\nYour total is: {result}.\n")
           keep_play = str(input("Do you want to continue using the Calcu-maton 5000? \n <YES>    <NO> \n")).upper()
           if keep_play == "YES":
             calc1_run = True
+            valid_opp = False
             num1 = result
           else:
             calc_run = False
