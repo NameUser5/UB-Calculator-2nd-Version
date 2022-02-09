@@ -102,7 +102,7 @@ while calc_run == True:
       keep_play = str(input("Do you want to continue using the Calcu-maton 5000? \n <YES>    <NO> \n")).upper()
       if keep_play == "YES":
         calc1_run = True
-        valid_opp = False
+        # valid_opp = False
         num1 = result
       else:
         calc_run = False
