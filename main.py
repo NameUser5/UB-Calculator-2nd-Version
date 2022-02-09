@@ -29,22 +29,6 @@ else:
 
 
 
-# num1 = ()
-
-# for n in num1:
-#     if num1_ask == True:
-#     # num1 = ""
-#         try:
-#           num1 = float(input("Enter your first number: ")) 
-#           valid_num1 = True
-#           if valid_num1 == True:
-#             calc_run = True
-#         except ValueError:
-#           print("Nice try, fellow.")
-#           valid_num1 = False
-
-
-
 while calc_run == True:
 
   operations = ["+","-","*","/"]
@@ -72,14 +56,14 @@ while calc_run == True:
       else:
         valid_opp = False
 
-      while valid_opp == False:
+      if valid_opp == False:   # THIS was the holdup
         operation = str(input("Try again. Enter an appropriate symbol. "))
         
         if operation in operations:
           valid_opp = True
           num2_ask = True
   
-              #   while num2_ask == True:
+              #   while num2_ask == True: <-- made same mistake 
           if num2_ask == True:
             try:
               num2 = float(input("Enter your second number: ")) 
@@ -99,7 +83,6 @@ while calc_run == True:
                     valid_num2 = False
                     continue
     
-#   get_result = True
 
             for o in operations:
               if operation == "+":
